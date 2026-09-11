@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ақпараттың түрлері мен қасиеттері</title>
+<style>
+:root{--bg:#f4f7fb;--card:#fff;--primary:#315bea;--primary2:#6c63ff;--text:#172033;--muted:#64748b;--ok:#16a34a;--bad:#dc2626;--border:#dbe3ef}
+*{box-sizing:border-box}body{margin:0;font-family:Inter,Segoe UI,Arial,sans-serif;background:var(--bg);color:var(--text)}
+header{background:linear-gradient(135deg,#315bea,#755cf6);color:#fff;padding:34px 20px;text-align:center}
+header h1{margin:0 0 8px;font-size:clamp(28px,5vw,44px)}header p{margin:0;opacity:.92}
+.container{max-width:1100px;margin:auto;padding:22px}
+.progress-wrap{background:#fff;border-radius:16px;padding:14px 18px;box-shadow:0 5px 20px #1e293b12;margin:20px 0}
+.progress{height:10px;background:#e8edf5;border-radius:99px;overflow:hidden}.bar{height:100%;width:0;background:linear-gradient(90deg,#315bea,#8b5cf6);transition:.35s}
+.nav{display:flex;gap:8px;flex-wrap:wrap;margin:18px 0}.nav button{border:0;background:#e8eefc;color:#2444a8;padding:10px 14px;border-radius:10px;cursor:pointer;font-weight:700}.nav button.active{background:var(--primary);color:#fff}
+section{display:none}.active-section{display:block}
+.card{background:var(--card);border:1px solid var(--border);border-radius:18px;padding:24px;margin:16px 0;box-shadow:0 6px 22px #1e293b0b}
+h2{margin-top:0}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px}
+.info{padding:18px;border-radius:15px;background:#f7f9ff;border-left:5px solid var(--primary)}
+.term{font-weight:800;color:#2646bd}.example{color:var(--muted);margin-top:6px}
+.quiz-q{padding:16px;border:1px solid var(--border);border-radius:14px;margin:12px 0}.option{display:block;padding:10px;margin:7px 0;border:1px solid var(--border);border-radius:10px;cursor:pointer}.option:hover{background:#f1f5ff}
+.option input{margin-right:9px}.feedback{font-weight:700;margin-top:8px}.correct{color:var(--ok)}.incorrect{color:var(--bad)}
+.btn{background:var(--primary);color:white;border:0;padding:12px 18px;border-radius:11px;font-weight:800;cursor:pointer;margin:6px 4px 6px 0}.btn.secondary{background:#64748b}.btn.green{background:var(--ok)}
+.match-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.match-item{padding:13px;border:1px solid var(--border);border-radius:11px;background:#fff}
+select,textarea,input[type=text]{width:100%;padding:11px;border:1px solid var(--border);border-radius:10px;font:inherit}textarea{min-height:110px;resize:vertical}
+.result{font-size:18px;font-weight:800;padding:15px;border-radius:12px;background:#eef5ff;margin-top:12px}
+.badge{display:inline-block;background:#eef2ff;color:#3949ab;padding:6px 10px;border-radius:99px;font-size:13px;font-weight:800}
+footer{text-align:center;color:var(--muted);padding:30px}
+@media(max-width:650px){.container{padding:12px}.card{padding:18px}.match-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header>
+  <div class="badge" style="background:#ffffff22;color:#fff">ИНФОРМАТИКА</div>
+  <h1>Ақпараттың түрлері мен қасиеттері</h1>
+  <p>Интерактивті оқу және өзін-өзі тексеру сайты</p>
+</header>
+
+<div class="container">
+  <div class="progress-wrap">
+    <b>Оқу барысы</b>
+    <span id="progressText" style="float:right">0%</span>
+    <div class="progress"><div class="bar" id="bar"></div></div>
+  </div>
+
+  <div class="nav">
+    <button onclick="showSection('learn',this)" class="active">📚 Оқу</button>
+    <button onclick="showSection('match',this)">🔗 Сәйкестендіру</button>
+    <button onclick="showSection('types',this)">🧩 Ақпарат түрлері</button>
+    <button onclick="showSection('cases',this)">💡 Жағдаяттар</button>
+    <button onclick="showSection('quiz',this)">📝 Тест</button>
+    <button onclick="showSection('answer',this)">✍️ Өз жауабың</button>
+  </div>
+
+  <section id="learn" class="active-section">
+    <div class="card">
+      <h2>1. Негізгі ұғым</h2>
+      <p><b>Ақпарат</b> — бізді қоршаған әлем туралы мәліметтер мен хабарлар. Біз ақпаратты күн сайын, әр сәтте аламыз.</p>
+    </div>
+    <div class="card">
+      <h2>2. Ақпаратты қабылдау арналары</h2>
+      <div class="grid">
+        <div class="info"><div class="term">👁 Көру</div><p>Көз арқылы қабылданады.</p><div class="example">Мысал: түрлі-түсті сурет.</div></div>
+        <div class="info"><div class="term">👂 Есту</div><p>Құлақ арқылы қабылданады.</p><div class="example">Мысал: жедел жәрдем сиренасы.</div></div>
+        <div class="info"><div class="term">👃 Иіскеу</div><p>Мұрын арқылы қабылданады.</p><div class="example">Мысал: раушан гүлінің хош иісі.</div></div>
+        <div class="info"><div class="term">👅 Дәм сезу</div><p>Тіл арқылы қабылданады.</p><div class="example">Мысал: ыстық шайдың дәмі.</div></div>
+        <div class="info"><div class="term">✋ Сипап сезу</div><p>Тері арқылы қабылданады.</p><div class="example">Мысал: мысықтың жұмсақ жүні.</div></div>
+      </div>
+    </div>
+    <div class="card">
+      <h2>3. Ақпараттың ұсынылу түрлері</h2>
+      <div class="grid">
+        <div class="info"><div class="term">🔤 Мәтіндік</div><p>Әріптермен, сөздермен жазылады.</p></div>
+        <div class="info"><div class="term">🔢 Сандық</div><p>Сандар мен есептер арқылы беріледі.</p></div>
+        <div class="info"><div class="term">🖼 Графикалық</div><p>Суреттер, схемалар, карталар арқылы беріледі.</p></div>
+        <div class="info"><div class="term">🔊 Дыбыстық</div><p>Музыка мен сөйлеген сөз.</p></div>
+        <div class="info"><div class="term">🎬 Бейнеақпарат</div><p>Қозғалыстағы бейнелер.</p></div>
+      </div>
+    </div>
+    <div class="card">
+      <h2>4. Ақпараттың қасиеттері</h2>
+      <div class="grid">
+        <div class="info"><div class="term">🎯 Анықтығы</div><p>Ақпараттың шындыққа сәйкес келуі.</p></div>
+        <div class="info"><div class="term">📋 Толықтығы</div><p>Шешім қабылдау үшін ақпараттың жеткілікті болуы.</p></div>
+        <div class="info"><div class="term">⏰ Өзектілігі</div><p>Ақпараттың дер кезінде алынуы және маңыздылығы.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="match">
+    <div class="card">
+      <h2>🔗 1-тапсырма. Сәйкестендіру</h2>
+      <p>Әр мысалға сәйкес қабылдау арнасын таңдаңыз.</p>
+      <div id="matchBox"></div>
+      <button class="btn" onclick="checkMatch()">Тексеру</button>
+      <button class="btn secondary" onclick="resetMatch()">Қайта бастау</button>
+      <div id="matchResult" class="result"></div>
+    </div>
+  </section>
+
+  <section id="types">
+    <div class="card">
+      <h2>🧩 2-тапсырма. Ақпараттың ұсынылу түрін анықта</h2>
+      <div id="typeBox"></div>
+      <button class="btn" onclick="checkTypes()">Тексеру</button>
+      <button class="btn secondary" onclick="resetTypes()">Қайта бастау</button>
+      <div id="typeResult" class="result"></div>
+    </div>
+  </section>
+
+  <section id="cases">
+    <div class="card">
+      <h2>💡 3-тапсырма. Жағдаяттарды талдау</h2>
+      <div class="quiz-q">
+        <h3>1-жағдай: Ауа райы болжамы</h3>
+        <p>«Ертең күн ашық болады, температура +25 градус». Бірақ желдің жылдамдығы туралы ештеңе айтылмаған.</p>
+        <p><b>Бұл ақпарат толық па?</b></p>
+        <label class="option"><input type="radio" name="c1" value="yes"> Иә</label>
+        <label class="option"><input type="radio" name="c1" value="no"> Жоқ, маңызды дерек жетіспейді</label>
+      </div>
+      <div class="quiz-q">
+        <h3>2-жағдай: Ыстық плита</h3>
+        <p>Қолыңды плитаның үстіне қойып, бірден қатты ыстықты сездің.</p>
+        <p><b>Ақпаратты қабылдау арнасы:</b></p>
+        <label class="option"><input type="radio" name="c2" value="touch"> Сипап сезу, тері</label>
+        <label class="option"><input type="radio" name="c2" value="eye"> Көру, көз</label>
+      </div>
+      <div class="quiz-q">
+        <h3>3-жағдай: Кинотеатрда фильм көру</h3>
+        <p>Экранда әдемі таулар көрінеді және құстардың дауысы естіледі.</p>
+        <p><b>Мұнда ақпараттың бірнеше түрі бар ма?</b></p>
+        <label class="option"><input type="radio" name="c3" value="yes"> Иә: графикалық және дыбыстық</label>
+        <label class="option"><input type="radio" name="c3" value="no"> Жоқ</label>
+      </div>
+      <button class="btn" onclick="checkCases()">Жағдаяттарды тексеру</button>
+      <div id="caseResult" class="result"></div>
+    </div>
+  </section>
+
+  <section id="quiz">
+    <div class="card">
+      <h2>📝 4-тапсырма. Білімді бекіту</h2>
+      <div id="quizBox"></div>
+      <button class="btn" onclick="checkQuiz()">Нәтижені көрсету</button>
+      <button class="btn secondary" onclick="resetQuiz()">Қайта бастау</button>
+      <div id="quizResult" class="result"></div>
+    </div>
+  </section>
+
+  <section id="answer">
+    <div class="card">
+      <h2>✍️ 5-тапсырма. Өз мысалыңды жаз</h2>
+      <p>Күнделікті өмірден ақпараттың бір түріне мысал келтіріп, оның қасиетін сипатта.</p>
+      <textarea id="freeAnswer" placeholder="Мысалы: ..."></textarea>
+      <button class="btn green" onclick="saveAnswer()">Жауапты сақтау</button>
+      <div id="savedAnswer" class="result" style="display:none"></div>
+    </div>
+    <div class="card">
+      <h2>🎓 Қорытынды</h2>
+      <p>Барлық тапсырмаларды орындап, өз нәтижелеріңді тексеріңдер.</p>
+      <button class="btn" onclick="showSummary()">Менің нәтижем</button>
+      <div id="summary" class="result"></div>
+    </div>
+  </section>
+</div>
+<footer>Материал жүктелген «Ақпарат түрлері - Жұмыс парағы» PDF мазмұны негізінде интерактивті форматқа бейімделді.</footer>
+
+<script>
+const state={completed:new Set(),scores:{}};
+const matchData=[
+ ["Раушан гүлінің хош иісі","Иіскеу арнасы (мұрын)"],
+ ["Жедел жәрдем сиренасының дыбысы","Есту арнасы (құлақ)"],
+ ["Түрлі-түсті әдемі сурет","Көру арнасы (көз)"],
+ ["Ыстық шайдың дәмі","Дәм сезу арнасы (тіл)"],
+ ["Мысықтың жұмсақ жүні","Сипап сезу арнасы (тері)"]
+];
+const typeData=[
+ ["Табиғат көрінісі бейнеленген фотосурет","Графикалық"],
+ ["Математикалық формула: E = mc²","Сандық"],
+ ["Ертегі кітабындағы жазылған мәтін","Мәтіндік"],
+ ["Радиодан берілетін жаңалықтар","Дыбыстық"],
+ ["YouTube-тегі оқу фильмі","Бейнеақпарат"]
+];
+const typeOpts=["Мәтіндік","Сандық","Графикалық","Дыбыстық","Бейнеақпарат"];
+function buildMatch(){matchBox.innerHTML=matchData.map((x,i)=>`<div class="match-item"><b>${x[0]}</b><select id="m${i}"><option value="">-- таңдаңыз --</option>${matchData.map(y=>`<option>${y[1]}</option>`).join("")}</select></div>`).join("");}
+function buildTypes(){typeBox.innerHTML=typeData.map((x,i)=>`<div class="quiz-q"><b>${i+1}. ${x[0]}</b><select id="t${i}"><option value="">-- таңдаңыз --</option>${typeOpts.map(o=>`<option>${o}</option>`).join("")}</select></div>`).join("");}
+const quizData=[
+ ["Адам ақпараттың басым бөлігін (шамамен 80-90%) қай мүшесі арқылы қабылдайды?",["Тері (сезу арнасы)","Құлақ (есту арнасы)","Мұрын (иіскеу арнасы)","Көз (көру арнасы)"],3],
+ ["Математикалық есептер мен формулалар ақпараттың қай түріне жатады?",["Мәтіндік","Сандық","Графикалық","Дыбыстық"],1],
+ ["Ақпараттың шындыққа сәйкес келуі оның қай қасиетін білдіреді?",["Анықтығы (дәлдігі)","Өзектілігі","Толықтығы","Түсініктілігі"],0],
+ ["Ыстық шайдың температурасын сезу ақпаратты қабылдаудың қай арнасына жатады?",["Иіскеу","Тактильді (сезу)","Дәм сезу","Көру"],1],
+ ["Ескірген ауа райы болжамы ақпараттың қай қасиетін жоғалтқан?",["Құндылығын","Анықтығын","Өзектілігін (уақытылылығын)","Толықтығын"],2]
+];
+function buildQuiz(){quizBox.innerHTML=quizData.map((q,i)=>`<div class="quiz-q"><b>${i+1}. ${q[0]}</b>${q[1].map((o,j)=>`<label class="option"><input type="radio" name="q${i}" value="${j}"> ${String.fromCharCode(65+j)}) ${o}</label>`).join("")}<div id="f${i}" class="feedback"></div></div>`).join("");}
+function checkMatch(){let s=0;matchData.forEach((x,i)=>{if(document.getElementById("m"+i).value===x[1])s++;});state.scores.match=s;state.completed.add("match");matchResult.innerHTML=`Нәтиже: <b>${s}/${matchData.length}</b> дұрыс.`;updateProgress();}
+function checkTypes(){let s=0;typeData.forEach((x,i)=>{if(document.getElementById("t"+i).value===x[1])s++;});state.scores.types=s;state.completed.add("types");typeResult.innerHTML=`Нәтиже: <b>${s}/${typeData.length}</b> дұрыс.`;updateProgress();}
+function checkCases(){let s=0;if(document.querySelector('input[name="c1"]:checked')?.value==="no")s++;if(document.querySelector('input[name="c2"]:checked')?.value==="touch")s++;if(document.querySelector('input[name="c3"]:checked')?.value==="yes")s++;state.scores.cases=s;state.completed.add("cases");caseResult.innerHTML=`Нәтиже: <b>${s}/3</b> дұрыс.`;updateProgress();}
+function checkQuiz(){let s=0;quizData.forEach((q,i)=>{let a=document.querySelector('input[name="q'+i+'"]:checked');let f=document.getElementById("f"+i);if(a&&+a.value===q[2]){s++;f.textContent="✓ Дұрыс";f.className="feedback correct"}else{f.textContent="✗ Дұрыс жауап: "+q[1][q[2]];f.className="feedback incorrect"}});state.scores.quiz=s;state.completed.add("quiz");quizResult.innerHTML=`Тест нәтижесі: <b>${s}/${quizData.length}</b> дұрыс.`;updateProgress();}
+function saveAnswer(){let a=freeAnswer.value.trim();if(!a)return;savedAnswer.style.display="block";savedAnswer.textContent="Сақталған жауап: "+a;state.completed.add("answer");updateProgress();}
+function showSummary(){let vals=Object.values(state.scores);let total=vals.reduce((a,b)=>a+b,0),max=(state.scores.match!==undefined?5:0)+(state.scores.types!==undefined?5:0)+(state.scores.cases!==undefined?3:0)+(state.scores.quiz!==undefined?5:0);summary.innerHTML=max?`Жалпы нәтиже: <b>${total}/${max}</b>. ${total/max>=.8?"Өте жақсы! 🎉":total/max>=.6?"Жақсы нәтиже! 👍":"Тақырыпты тағы бір қайталап көріңіз. 📚"}`:"Әзірге тексерілген тапсырма жоқ."}
+function resetMatch(){buildMatch();matchResult.innerHTML="";delete state.scores.match;state.completed.delete("match");updateProgress();}
+function resetTypes(){buildTypes();typeResult.innerHTML="";delete state.scores.types;state.completed.delete("types");updateProgress();}
+function resetQuiz(){buildQuiz();quizResult.innerHTML="";delete state.scores.quiz;state.completed.delete("quiz");updateProgress();}
+function showSection(id,btn){document.querySelectorAll("section").forEach(s=>s.classList.remove("active-section"));document.getElementById(id).classList.add("active-section");document.querySelectorAll(".nav button").forEach(b=>b.classList.remove("active"));btn.classList.add("active");}
+function updateProgress(){let p=Math.round(state.completed.size/5*100);bar.style.width=p+"%";progressText.textContent=p+"%";}
+buildMatch();buildTypes();buildQuiz();
+</script>
+</body>
+</html>
